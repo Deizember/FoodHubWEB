@@ -11,6 +11,9 @@ def landing():
 @app.route('/restaurantfound')
 def restaurantfound():
     return render_template('restaurant-found.html')
+@app.route('/restaurant1')
+def restaurant1():
+    return render_template('restaurant1.html')
 @app.route('/homepage1')
 def homepage1():
     return render_template('homepage1.html')
