@@ -11,23 +11,22 @@ def landing():
 @app.route('/restaurant1')
 def restaurant1():
     return render_template('restaurant1.html')
+
 @app.route("/register", methods=['GET','POST'])
 def register():
-    return render_template('register.html')
-@app.route('/api/users', methods = ['POST'])
-def new_user():
-    username = request.json.get('username')
-    password = request.json.get('password')
-    if username is None or password is None:
-        abort(400) # missing arguments
-    if Customer.query.filter_by(username = username).first() is not None:
-        abort(400) # existing user
-    user = Customer(username = username)
 
-    user.hash_password(password)
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({ 'username': user.username }), 201, {'Location': url_for('get_user', id = user.id, _external = True)}
+    firstname = request.form['firstname', False]
+    lastname = request.form['lastname', False]
+    gender = request.form['gender', False]
+    email = request.form['email', False]
+    contact_number = request.form['contact_number', False]
+    username = request.form['username', False]
+    password = request.form['password', False]
+    
+    register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/owner/register?username"+ username+"&password="+ password+ "&firstname="+firstname+"&lastname="+ lastname+"&contact_number="+contact_number+"&gender="+gender)
+    register_json = register_url.json()
+    return render_template('landing.html', register_json=register_json)
+
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template('login.html')
