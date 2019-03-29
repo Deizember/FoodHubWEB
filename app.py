@@ -33,8 +33,8 @@ def register():
 def login():
     return render_template('login.html')
 
-@app.route('/customerProfile')
-def CustomerProfile():
+@app.route('/customer-profile')
+def customerprofile():
     return render_template('customer-profile.html')
 
 
