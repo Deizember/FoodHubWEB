@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+# from flask_login import login_required
 
 
 
@@ -29,13 +30,26 @@ def register():
     register_json = register_url.json()
     return render_template('landing.html', register_json=register_json)
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+# @app.route('/login')
+# def login():
+#     return render_template('login.html')
 
-@app.route('/customer-profile')
-def customerprofile():
-    return render_template('customer-profile.html')
+# @app.route('/logout')
+# def logout():
+#     logout_user()
+#     return render_template('login.html', form=form)
+
+# @app.route('/customer-profile', methods=['GET', 'POST'])
+# def customerprofile(username):
+#     firstname = request.form['firstname']
+#     lastname = request.form['lastname']
+#     gender = request.form['gender']
+#     email = request.form['email']
+#     contact_number = request.form['contact_number']
+#     username = request.form['username', False]
+#     password = request.form['password', False]
+
+#     return render_template('customer-profile.html')
 
 
 if __name__=='__main__':
