@@ -1,3 +1,5 @@
+{% from '_formhelper.html' import render_field %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,7 +166,7 @@
                         <h4 itemprop="headline">SIGN IN</h4>
                     </div>
                     
-                    <form class="sign-form", method="POST">
+                    <form class="sign-form",action ='', method="POST">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <input class="brd-rd3" type="text" placeholder="Username or Email">
@@ -174,6 +176,9 @@
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <a class="recover-btn" href="#" title="" itemprop="url">Forgot my password</a>
                             </div>
                             
                         </div>
@@ -190,7 +195,17 @@
                         <h4 itemprop="headline">SIGN UP</h4>
                     </div>
                     
-                    <form class="sign-form", method="POST">
+                    <form class="sign-form",action ='' ,method="POST">
+                            <div class="dropdown">
+                                    <button class="dropbtn">Dropdown 
+                                      <i class="fa fa-caret-down"></i>
+                                    </button>
+                                    <div class="dropdown-content">
+                                      <a href="#">Link 1</a>
+                                      <a href="#">Link 2</a>
+                                      <a href="#">Link 3</a>
+                                    </div>
+                                  </div> 
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <input class="brd-rd3" name="firstname" placeholder="First Name">
@@ -215,9 +230,6 @@
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
                             </div>
                         </div>
                     </form>
