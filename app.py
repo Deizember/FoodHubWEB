@@ -15,9 +15,9 @@ def landing():
 def restaurant1():
     return render_template('restaurant1.html')
 
-@app.route("/register", methods=['GET','POST'])
+@app.route("/customer/register", methods=['GET','POST'])
 def register():
-
+    
     firstname = request.form['firstname', False]
     lastname = request.form['lastname', False]
     gender = request.form['gender', False]
@@ -26,9 +26,30 @@ def register():
     username = request.form['username', False]
     password = request.form['password', False]
     
-    register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/owner/register?username"+ username+"&password="+ password+ "&firstname="+firstname+"&lastname="+ lastname+"&contact_number="+contact_number+"&gender="+gender)
-    register_json = register_url.json()
-    return render_template('landing.html', register_json=register_json)
+    register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/customer/register?username", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
+    print (register_url.text)
+    register_json = register_url.text
+
+    # register_json = register_url.json()
+    return render_template('customer-profile.html', register_json=register_json)
+
+
+@app.route("/owner/register", methods=['GET','POST'])
+def regist():
+    
+    username = request.form['username']
+    password = request.form['password']
+    firstname = request.form['firstname']
+    lastname = request.form['lastname']
+    contact_number = request.form['contact_number']
+    gender = request.form['gender']
+    
+    register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/owner/register?username", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
+    print (register_url.text)
+    register_json = register_url.text
+
+    # register_json = register_url.json()
+    return render_template('customer-profile.html', register_json=register_json)    
 
 # @app.route('/login')
 # def login():
