@@ -13,9 +13,15 @@ Bootstrap (app)
 #     return render_template('landing.html')
 
 
-# @app.route('/restaurant1')
-# def restaurant1():
-#     return render_template('restaurant1.html')
+@app.route('/restaurant1')
+def restaurant1():
+    return render_template('restaurant1.html')
+@app.route('/restaurantprofile')
+def restaurantprofile():
+    return render_template('restaurantprofile.html')
+@app.route('/reservationres')
+def reservationres():
+    return render_template('reservationrestau.html')
 
 # @app.route("/register", methods=['GET','POST'])
 # def register(): 
