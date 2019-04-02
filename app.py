@@ -53,9 +53,6 @@ def register_customer():
     #     db.session.commit()
     #     flash('Your account has been created! You are now able to log in', 'success')
     #     return render_template('login')
-    register_url = request.post("http://127.0.0.1:5000/customer/", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
-    print (register_url.text)
-    register_json = register_url.text
 
     if request.method == "POST":
         print('sulod')
@@ -65,10 +62,9 @@ def register_customer():
         lastname = request.form['lastname']
         contact_number = request.form['contact_number']
         gender = request.form['gender']
-        password = request.form['password']
 
-        response = requests.post("http://127.0.0.1:5000/customer/",
-        json={"username":username, "password":password}, )
+        response = requests.post("http://127.0.0.1:5000/customer",
+        json={"username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender}, )
         print(response.text)
         return redirect(url_for('official'))  
     return render_template('landing.html')
@@ -76,10 +72,6 @@ def register_customer():
 
 @app.route('/owner/register', methods=['GET','POST'])
 def register_owner():
-    
-    register_url = request.post("http://127.0.0.1:5000/customer/", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
-    print (register_url.text)
-    register_json = register_url.text
 
     if request.method == "POST":
         print('sulod')
@@ -89,10 +81,9 @@ def register_owner():
         lastname = request.form['lastname']
         contact_number = request.form['contact_number']
         gender = request.form['gender']
-        password = request.form['password']
 
-        response = requests.post("http://127.0.0.1:5000/customer/",
-        json={"username":username, "password":password}, )
+        response = requests.post("http://127.0.0.1:5000/customer",
+        json={"username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
         print(response.text)
         return redirect(url_for('official'))  
     return render_template('landing.html')
