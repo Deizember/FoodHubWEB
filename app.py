@@ -18,6 +18,8 @@ def restaurant1():
 @app.route("/register", methods=['GET','POST'])
 def register():
 
+    registerForm = RegisterForm()
+
     firstname = request.form['firstname', False]
     lastname = request.form['lastname', False]
     gender = request.form['gender', False]
@@ -28,7 +30,8 @@ def register():
     
     register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/owner/register?username"+ username+"&password="+ password+ "&firstname="+firstname+"&lastname="+ lastname+"&contact_number="+contact_number+"&gender="+gender)
     register_json = register_url.json()
-    return render_template('landing.html', register_json=register_json)
+    return render_template('landing.html', registerForm=registerForm)
+    # return render_template('landing.html', register_json=register_json)
 
 # @app.route('/login')
 # def login():
