@@ -85,7 +85,8 @@ code,kbd,pre,samp{
 button,input,optgroup,select,textarea{
     margin:0;
     font:inherit;
-    color:inherit
+    color:#000
+    
 }
 button{
     overflow:visible

@@ -1,15 +1,34 @@
-import os
-from PIL import Image
-from flask import render_template, flash, redirect, request, Flask, url_for
-from forms import RegistrationForm
-from foodhubapi.models import User
-from flask_login import login_user, current_user, logout_user, login_required
-# from flask_login import login_required
-
-
-
+from flask import Flask, render_template, request, url_for, redirect
+from flask_bootstrap import Bootstrap
+from forms import RegistrationForm, LogInForm
+from flask_login import current_user
+from flask_restful import Resource, Api
+import requests
 
 app = Flask(__name__)
+Bootstrap (app)
+
+# @app.route('/')
+# def landing():
+#     return render_template('landing.html')
+
+
+# @app.route('/restaurant1')
+# def restaurant1():
+#     return render_template('restaurant1.html')
+
+# @app.route("/register", methods=['GET','POST'])
+# def register(): 
+#     return render_template('landing.html')
+@app.route("/official")
+def official():
+    return render_template('official.html')
+
+# @app.route('/customer/login', methods=['GET','POST'])
+# def Customerlogin():
+#     if request.method == "POST":
+#         username = request.form['username'] 
+#         password = request.form['password'] 
 
 @app.route('/')
 @app.route('/landing')
@@ -34,43 +53,57 @@ def register_customer():
     #     db.session.commit()
     #     flash('Your account has been created! You are now able to log in', 'success')
     #     return render_template('login')
-    firstname = request.form['firstname', False]
-    lastname = request.form['lastname', False]
-    gender = request.form['gender', False]
-    email = request.form['email', False]
-    contact_number = request.form['contact_number', False]
-    username = request.form['username', False]
-    password = request.form['password', False]
-    
-    register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/customer/register?username", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
+    register_url = request.post("http://127.0.0.1:5000/customer/", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
     print (register_url.text)
     register_json = register_url.text
 
-    # # register_json = register_url.json()  """
-    return render_template('customer-profile.html', register_json=register_json)
+    if request.method == "POST":
+        print('sulod')
+        username = request.form['username']
+        password = request.form['password']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        contact_number = request.form['contact_number']
+        gender = request.form['gender']
+        password = request.form['password']
+
+        response = requests.post("http://127.0.0.1:5000/customer/",
+        json={"username":username, "password":password}, )
+        print(response.text)
+        return redirect(url_for('official'))  
+    return render_template('landing.html')
 
 
 @app.route('/owner/register', methods=['GET','POST'])
 def register_owner():
     
-    username = request.form['username']
-    password = request.form['password']
-    firstname = request.form['firstname']
-    lastname = request.form['lastname']
-    contact_number = request.form['contact_number']
-    gender = request.form['gender']
-    
-    register_url = request.post("https://fierce-scrubland-63107.herokuapp.com/owner/register?username", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
+    register_url = request.post("http://127.0.0.1:5000/customer/", json = { "username": username, "password": password, "firstname": firstname, "lastname": lastname, "contact_number": contact_number, "gender": gender},)
     print (register_url.text)
     register_json = register_url.text
 
-    # register_json = register_url.json()
-    return render_template('customer-profile.html', register_json=register_json)    
+    if request.method == "POST":
+        print('sulod')
+        username = request.form['username']
+        password = request.form['password']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        contact_number = request.form['contact_number']
+        gender = request.form['gender']
+        password = request.form['password']
 
-@app.route('/customer/customer-profile')
-def customer():
-    image_file = url_for('static', filename='profile_pic/' + current_user.image_file)
-    return render_template('customer-profile.html', title='Account', image_file=image_file)
+        response = requests.post("http://127.0.0.1:5000/customer/",
+        json={"username":username, "password":password}, )
+        print(response.text)
+        return redirect(url_for('official'))  
+    return render_template('landing.html')
+
+
+    # register_json = register_url.json()
+   
+# @app.route('/customer/customer-profile')
+# def customer():
+    #  image_file = url_for('static', filename='profile_pic/' + current_user.image_file)
+    # return render_template('customer-profile.html', register_json=register_json)
 
 # @app.route('/login')
 # def login():
@@ -94,5 +127,33 @@ def customer():
 #     return render_template('customer-profile.html')
 
 
+# if __name__=='__main__':
+#     app.run(debug=True,threaded=True, port=5000)   
+#         response = request.post("http://127.0.0.1:5000/owner/login",
+#         json = {"username":username, "password":password})
+#         print(response.text)
+       
+    # return render_template('official.html')
+
+@app.route('/', methods=['GET','POST'])
+def Ownerlogin():
+    print('wa kasulod')
+    if request.method == "POST":
+        print('sulod')
+        username = request.form['username'] 
+        password = request.form['password'] 
+
+        response = requests.post("http://127.0.0.1:5000/owner/login",
+        json={"username":username, "password":password}, )
+        print(response.text)
+        return redirect(url_for('official'))  
+    return render_template('landing.html')
+@app.route('/customerProfile')
+def CustomerProfile():
+    return render_template('customer-profile.html')
+
+
 if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=5000)   
+    app.run(debug=True,threaded=True, port=4000)   
+
+    

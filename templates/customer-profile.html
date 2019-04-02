@@ -1,44 +1,4 @@
-<header class="stick">
-            <div class="topbar">
-                <div class="container">
-                    <div class="topbar-register">
-                        <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGOUT</a>
-                    </div> 
-                     
-                </div>                
-            </div><!-- Topbar -->
-            <div class="logo-menu-sec">
-                <div class="container">
-                    <div class="logo"><h1 itemprop="headline"><a href="/landing" title="Home" itemprop="url"><img src="static/images/image.jpg" alt="logo.jpg" itemprop="image"></a></h1></div>
-                  <nav>
-                        <div class="menu-sec">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">WHERE TO GO?</span>RESTAURANTS</a>
-                                    <ul class="sub-dropdown">
-                                        <li><a href="/restaurant1"" title="RESTAURANT 1" itemprop="url">RESTAURANT 1</a></li>
-                                        <li><a href="#" title="RESTAURANT 2" itemprop="url">RESTAURANT 2</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#" title="PAGES" itemprop="url"><span class="red-clr">VISIT US</span>PAGES</a>
-                                    <ul class="sub-dropdown">
-                                        <li class="menu-item-has-children"><a href="#" title="BLOG" itemprop="url">BLOG</a>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#" title="SPECIAL PAGES" itemprop="url">SPECIAL PAGES</a>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#" title="GALLERY" itemprop="url">GALLERY</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li><a href="#" title="CONTACT US" itemprop="url"><span class="red-clr">FOR MORE INFO</span>CONTACT US</a></li>
-                            </ul>
-                            <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url">REGISTER RESTAURANT</a>
-                        </div>
-                    </nav><!-- Navigation -->
-                
-            </div><!-- Logo Menu Section -->
-        </header><!-- Header -->
-{% block content %}
+{% comment %} {% block content %}
     <div class="content-section">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ image_file }}">
@@ -93,4 +53,29 @@
             </div>
         </form>
     </div>
-{% endblock content %}
+{% endblock content %} {% endcomment %}
+{%extends "landing.html"%}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
