@@ -2,7 +2,6 @@ import os
 from PIL import Image
 from flask import render_template, flash, redirect, request, Flask, url_for
 from forms import RegistrationForm
-from foodhubapi.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 # from flask_login import login_required
 
@@ -67,10 +66,10 @@ def register_owner():
     # register_json = register_url.json()
     return render_template('customer-profile.html', register_json=register_json)    
 
-@app.route('/customer/customer-profile')
-def customer():
-    image_file = url_for('static', filename='profile_pic/' + current_user.image_file)
-    return render_template('customer-profile.html', title='Account', image_file=image_file)
+# @app.route('/customer/customer-profile')
+# def customer():
+    #  image_file = url_for('static', filename='profile_pic/' + current_user.image_file)
+    # return render_template('customer-profile.html', register_json=register_json)
 
 # @app.route('/login')
 # def login():
