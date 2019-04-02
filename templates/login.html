@@ -1,7 +1,10 @@
-{%extends "landing.html"%}
+{%extends "*bootstrap/landing.html"%}
+{% import "bootstrap/wtf.html as wtf%}
+{% block title %}
+Login
+{% endblock %}
+ 
 {% block content %}
-
-
         <div class="log-popup text-center">
             <div class="sign-popup-wrapper brd-rd5">
                 <div class="sign-popup-inner brd-rd5">
@@ -9,18 +12,15 @@
                     <div class="sign-popup-title text-center">
                         <h4 itemprop="headline">SIGN IN</h4>
                     </div>
-                    <form class="sign-form" action=",login" method="POST">
-                        {{ form.csrf_token }}
+                    <form class="sign-form" action="/login" method="POST">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" placeholder="Username or Email">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" placeholder="Password">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                {{form.hidden_tag() }}
+                                {{wtf.form_field(form.username)}}
+                                {{wtf.form_field(form.password)}}
+                                {{wtf.form_field(form.remember)}}
                                 <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
-                            </div>
+                            </div> 
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <a class="sign-btn" href="/register" title="" itemprop="url">Not a member? Sign up</a>
                                 <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
