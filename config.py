@@ -7,7 +7,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost:/5433/foodhub'
 
-SECRET_KEY
 app.static_folder = 'static'
 
 db = SQLAlchemy(app)
