@@ -12,7 +12,7 @@
     
 
     <link rel="stylesheet" href="static/css/icons.min.css">
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
     <link rel="stylesheet" href="static/css/animate.min.css">
     <link rel="stylesheet" href="static/css/main.css">
     <link rel="stylesheet" href="static/css/red-color.css">
@@ -49,47 +49,18 @@
                      
                 </div>                
             </div><!-- Topbar -->
-            <div class="logo-menu-sec">
-                <div class="container">
-                    <div class="logo"><h1 itemprop="headline"><a href="/landing" title="Home" itemprop="url"><img src="static/images/image.jpg" alt="logo.jpg" itemprop="image"></a></h1></div>
-                  <nav>
-                        <div class="menu-sec">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="red-clr">WHERE TO GO?</span>RESTAURANTS</a>
-                                    <ul class="sub-dropdown">
-                                        <li><a href="/restaurant1"" title="RESTAURANT 1" itemprop="url">RESTAURANT 1</a></li>
-                                        <li><a href="#" title="RESTAURANT 2" itemprop="url">RESTAURANT 2</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#" title="PAGES" itemprop="url"><span class="red-clr">VISIT US</span>PAGES</a>
-                                    <ul class="sub-dropdown">
-                                        <li class="menu-item-has-children"><a href="#" title="BLOG" itemprop="url">BLOG</a>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#" title="SPECIAL PAGES" itemprop="url">SPECIAL PAGES</a>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#" title="GALLERY" itemprop="url">GALLERY</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li><a href="#" title="CONTACT US" itemprop="url"><span class="red-clr">FOR MORE INFO</span>CONTACT US</a></li>
-                            </ul>
-                            <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url">REGISTER RESTAURANT</a>
-                        </div>
-                    </nav><!-- Navigation -->
-                
-            </div><!-- Logo Menu Section -->
+            
         </header><!-- Header -->
         <section>
             <div class="center">
                 <div style="background-image: url(static/images/steak.jpg);"  class="fixed-bg"></div>
                 <div class="restaurant-searching text-center">
                     <div class="restaurant-searching-inner">
-                        <h2 itemprop="headline"> Order Food Online From  the Best Restaurants</h2>
+                        <h2 itemprop="headline"> Order Food Online From the  <span> Best Restaurants</span> in Iligan City</h2>
                         <form class="restaurant-search-form brd-rd2">
                             <div class="row mrg10">
                                 <div class="col-md-6 col-sm-5 col-lg-5 col-xs-12">
-                                    <div class="input-field brd-rd2"><input class="brd-rd2" type="text" placeholder="Restaurant Name"></div>
+                                    <div class="input-field brd-rd2"><input class="brd-rd2" type="text" placeholder="Search for a food"><i class="fas fa-humburger"></i></div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
                                     <div class="input-field brd-rd2"><i class="fa fa-map-marker"></i><input class="brd-rd2" type="text" placeholder="Search Location"><i class="fa fa-location-arrow"></i></div>
@@ -191,18 +162,7 @@
             </div>
         </footer>
         
-        <div class="newsletter-popup-wrapper text-center">
-            <div class="newsletter-popup-inner" style="background-image: url(static/images/newsletter-bg.jpg);">
-                <a class="close-btn brd-rd50" href="/landing" title="Close Button" itemprop="url"><i class="fa fa-close"></i></a>
-                <h3 itemprop="headline"><i class="fa fa-envelope-open red-clr"></i> SIGN UP FOR RECENT UPDATES</h3>
-                <p itemprop="description">Join our Subscribers list to get the latest news, updates and special offers delivered directly in your inbox.</p>
-                <form class="newsletter-frm brd-rd30">
-                    <input class="brd-rd30" type="email" placeholder="ENTER YOUR EMAIL">
-                    <button class="brd-rd30 red-bg" type="submit">SUBSCRIBE</button>
-                </form>
-                <span class="red-clr"><i class="fa fa-check"></i> Thanks, your address has been added.</span>
-            </div>
-        </div><!-- Newsletter Popup Wrapper -->
+        
 
         <div class="log-popup text-center">
             <div class="sign-popup-wrapper brd-rd5">
@@ -211,20 +171,19 @@
                     <div class="sign-popup-title text-center">
                         <h4 itemprop="headline">SIGN IN</h4>
                     </div>
-                    <form class="sign-form">
+                    <form class="sign-form" method ="post">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" placeholder="Username or Email">
+                                <input class="brd-rd3" type="text" placeholder="Username or Email" name="username">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" placeholder="Password">
+                                <input class="brd-rd3" type="password" placeholder="Password" name ="password">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="sign-btn" href="/login-register" title="" itemprop="url">Not a member? Sign up</a>
-                                <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
+                                <a class="recover-btn" href="#" title="" itemprop="url">Remember Me</a>
                             </div>
                         </div>
                     </form>
@@ -239,22 +198,34 @@
                     <div class="sign-popup-title text-center">
                         <h4 itemprop="headline">SIGN UP</h4>  
                     </div>
-                    <form class="sign-form">
+                    <form class="sign-form" method = "POST">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" placeholder="Username">
+                                <input class="brd-rd3" type="text" placeholder="First Name "name="firstname">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="email" placeholder="Email">
+                                <input class="brd-rd3" type="text" placeholder="Last Name "name="lastname">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" placeholder="Password">
+                             <input class="brd-rd3" type="text" placeholder="Gender "name="gender">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <input class="brd-rd3" type="text" placeholder="Contact Number"name="contact">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <input class="brd-rd3" type="text" placeholder="Username" name="username">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <input class="brd-rd3" type="email" placeholder="Email" name="email">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <input class="brd-rd3" type="password" placeholder="Password"name="password">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="sign-btn" href="" title="" itemprop="url">Already Registered? Sign in</a>
+                                
                                 <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
                             </div>
                         </div>
@@ -264,7 +235,14 @@
         </div>
     </main><!-- Main Wrapper -->
 
+    <script>
+            document.querySelector('.showcase.sweet button').onclick = function(){
+              swal("Oops...", "Something went wrong!", "error");
+            };
+    </script>
+
     <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/sweetalert.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/plugins.js"></script>
     <script src="static/js/main.js"></script>
