@@ -21,18 +21,34 @@
 </head>
 <body itemscope>
     <main>
-    
+    <header class="stick">
+                <div class="topbar">
+                    <div class="container">
+                        <div class="dropdown">
+                            <button class="dropbtn" >Settings
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            
+                                    <div class="dropdown-content" id="myDropdown">
+                                      <a href="#">logout</a>
+                                      <a href="#">Link 2</a>
+                                      <a href="#">Link 3</a>
+                                    </div>
+                            </div>
+                                
+                    </div>         
+            </header><!-- Header -->
           
             <div class="responsive-menu">
                 <span class="menu-close red-bg brd-rd3"><i class="fa fa-close"></i></span>
                 <div class="menu-lst">
                     <ul>
-                        <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="yellow-clr">Restaurant</span>RESTAURANTS</a>
+                        <li class="menu-item-has-children"><a href="#" title="RESTAURANTS" itemprop="url"><span class="yellow-clr">REAL FOOD</span>RESTAURANTS</a>
                     
                         </li>
-                        <li class="menu-item-has-children"><a href="#" title="PAGES" itemprop="url"><span class="yellow-clr">Pages</span>PAGES</a></li>
+                        <li class="menu-item-has-children"><a href="#" title="PAGES" itemprop="url"><span class="yellow-clr">REAL FOOD</span>PAGES</a></li>
                                 
-                        <li><a href="#" title="CONTACT US" itemprop="url"><span class="yellow-clr">For More Info</span>CONTACT US</a></li>
+                        <li><a href="#" title="CONTACT US" itemprop="url"><span class="yellow-clr">REAL FOOD</span>CONTACT US</a></li>
                     </ul>
                 </div>
             </div><!-- Responsive Menu -->
@@ -43,7 +59,7 @@
                 <div class="page-title-wrapper text-center">
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div class="page-title-inner">
-                            <h1 itemprop="headline"> Reservation</h1>
+                            <h1 itemprop="headline"> Restaurants Information</h1>
                         </div>
                     </div>
                 </div>
@@ -54,7 +70,7 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/restaurantprofile" title="" itemprop="url">Home</a></li>
-                    <li class="breadcrumb-item active">Register Reservation</li>
+                    <li class="breadcrumb-item active">Information</li>
                 </ol>
             </div>
         </div>
@@ -74,9 +90,9 @@
                                                     <li class="active">
 														<a href="#reservation-tab1" data-toggle="tab">
 														<span class="brd-rd50">1</span> Information</a>
-													</li>
-                                                    <li><a href="#reservation-tab3" data-toggle="tab"><span class="brd-rd50">2</span> Payment Information</a></li>
-                                                    <li><a href="#reservation-tab4" data-toggle="tab"><span class="brd-rd50">3</span> Activation</a></li>
+                                                    </li>
+                                                    <li><a href="#reservation-tab3" data-toggle="tab"><span class="brd-rd50">2</span>Settings</a></li>
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -84,39 +100,27 @@
                                             <div class="reservation-tab-content">
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active" id="reservation-tab1">
-                                                        <form class="restaurant-info-form brd-rd5">
+                                                        <form class="restaurant-info-form brd-rd5" method = "POST">
                                                             <div class="row mrg20">
                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                                     <label>Restaurant name <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
+                                                                    <input class="brd-rd3" type="text"  name ="restaurant_name">
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Restaurant Phone <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
+                                                                    <label>Restaurant Type <sup>*</sup></label>
+                                                                    <input class="brd-rd3" type="text"  name ="restaurant_type">
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Manager Name <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
+                                                                    <label>Restaurant Location <sup>*</sup></label>
+                                                                    <input class="brd-rd3" type="text"  name="locations">
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Manager Contact phone <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
-                                                                </div>
-                                                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                    <label>Contact Email <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="email">
-                                                                </div>
-                                                
-                                                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                    <h4 itemprop="headline">SIGNUP FIELDS</h4>
+                                                                    <label>Restaurant Owner<sup>*</sup></label>
+                                                                    <input class="brd-rd3" type="text"  name="owner">
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Username <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Email <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="email">
+                                                                    <label>Bio<sup>*</sup></label>
+                                                                    <input class="brd-rd3" type="text"  name="bio">
                                                                 </div>
                                                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                                                     <div class="check-box">
@@ -126,53 +130,35 @@
                                                                 </div>
                                                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                                                     <div class="step-buttons">
-                                                                        <a class="brd-rd3 red-bg" href="#" title="" itemprop="url">Next Step</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="tab-pane fade" id="reservation-tab2">
-                                                        <form class="restaurant-info-form brd-rd5">
-                                                            <div class="row mrg20">
-                                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>First Name <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Last Name <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Email <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="email">
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                    <label>Phone <sup>*</sup></label>
-                                                                    <input class="brd-rd3" type="text">
-                                                                </div>
-                                                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                    <label>Address <sup>*</sup></label>
-                                                                    <textarea class="brd-rd3"></textarea>
-                                                                </div>
-                                                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                    <div class="step-buttons">
-                                                                        <a class="brd-rd3" href="#" title="" itemprop="url">Back Step</a>
-                                                                        <a class="brd-rd3 red-bg" href="#" title="" itemprop="url">Next Step</a>
+                                                                           
+                                                                        <a class="brd-rd3 red-bg" href="/restaurantprofile" title="" itemprop="url">CREATE!</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </form>
                                                     </div>
                                                     
+                                                    <div class="tab-pane fade" id="reservation-tab3">
+                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                    <div class="step-buttons">
+                                                                            <div class="danger">
+                                                                                    <p><strong>Danger!</strong> Do you wanna delete your restaurant!?</p>
+                                                                                  </div>
+                                                                                  
+                                                                            <a class="brd-rd3" href="/restaurantprofile" title="" itemprop="url">Skip>></a>
+                                                                        <a class="brd-rd3 red-bg" href="/restaurantprofile" title="" itemprop="url">Update</a>
+                                                                    </div>
+                                                                </div>
+                                                            
+    </div>
+                                                    
             </div>
         </section>
-
-        
-
-       
-        
     </main><!-- Main Wrapper -->
+
+    <script>
+    swal("Good job!", "You clicked the button!", "success");
+    </script>
 
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
@@ -181,6 +167,7 @@
     <script src="static/js/google-map-int.js"></script>
     <script src="../../www.google.com/recaptcha/api.js"></script>
     <script src="static/js/main.js"></script>
+    <script src="static/js/sweetalert.js"></script>
 </body>	
 
 </html>
