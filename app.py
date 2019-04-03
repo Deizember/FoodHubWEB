@@ -10,10 +10,6 @@ import requests
 app = Flask(__name__)
 Bootstrap (app)
 
-# @app.route('/')
-# def landing():
-#     return render_template('landing.html')
-
 
 @app.route('/restaurant1')
 def restaurant1():
@@ -21,6 +17,46 @@ def restaurant1():
 @app.route('/restaurantprofile')
 def restaurantprofile():
     return render_template('restaurantprofile.html')
+
+@app.route('/customer/register', methods=['GET','POST'])
+def register_customer():
+    if request.method == "POST":
+        print('sulod')
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        contact_number = request.form['contact_number']
+        gender = request.form['gender']
+        username = request.form['username']
+        password = request.form['password']
+        
+
+        response = requests.post("http://127.0.0.1:5000/customer",
+        json={"firstname":firstname,"lastname":lastname,"contact_number":contact_number,"gender":gender,"username":username, "password":password}, )
+        print(response.text)
+        return redirect(url_for('official'))  
+    return render_template('landing.html')
+
+
+@app.route('/owner/register', methods=['GET','POST'])
+def register_owner():
+    if request.method == "POST":
+        print('sulod')
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        contact_number = request.form['contact_number']
+        gender = request.form['gender']
+        username = request.form['username']
+        password = request.form['password']
+        
+        response = requests.post("http://127.0.0.1:5000/customer",
+        json={"firstname":firstname,"lastname":lastname,"contact_number":contact_number,"gender":gender,"username":username, "password":password}, )
+        print(response.text)
+        return redirect(url_for('official'))
+        
+    return render_template('landing.html')
+
+ 
+
 
 @app.route('/reservationres', methods =['GET', 'POST'])
 def reservationres():
@@ -48,25 +84,10 @@ def displayrestau():
 
     return render_template('reservationrestau.html', resto=restau_json)
 
-# @app.route("/register", methods=['GET','POST'])
-# def register(): 
-#     return render_template('landing.html')
+
 @app.route("/official")
 def official():
     return render_template('official.html')
-
-
-# @app.route('/customer/login', methods=['GET','POST'])
-# def Customerlogin():
-#     if request.method == "POST":
-#         username = request.form['username'] 
-#         password = request.form['password'] 
-
-#         response = request.post("http://127.0.0.1:5000/owner/login",
-#         json = {"username":username, "password":password})
-#         print(response.text)
-       
-    # return render_template('official.html')
 
 @app.route('/', methods=['GET','POST'])
 def Ownerlogin():
