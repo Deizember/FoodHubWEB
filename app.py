@@ -1,8 +1,10 @@
+
 from flask import Flask, render_template, request, url_for, redirect,flash
 from flask_bootstrap import Bootstrap
 from flask_login import current_user
 from flask_restful import Resource, Api
 import requests
+
 
 
 
@@ -35,6 +37,7 @@ def Ownerlogin():
         elif response.status_code == 200:
             return redirect(url_for('official'  ))
     return render_template('landing.html')
+
 
 
 #Routing for Restaurant profile
@@ -73,4 +76,10 @@ def displayrestau():
 if __name__=='__main__':
     app.run(debug=True,threaded=True, port=4000)   
 
-    
+@app.route('/restaurant1')
+def restaurant1():
+    return render_template('restaurant1.html')
+
+if __name__=='__main__':
+    app.run(debug=True,threaded=True, port=4000)   
+
