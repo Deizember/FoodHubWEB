@@ -1,10 +1,8 @@
-
 from flask import Flask, render_template, request, url_for, redirect,flash
 from flask_bootstrap import Bootstrap
 from flask_login import current_user
 from flask_restful import Resource, Api
 import requests
-
 
 
 
@@ -37,7 +35,6 @@ def Ownerlogin():
         elif response.status_code == 200:
             return redirect(url_for('official'  ))
     return render_template('landing.html')
-
 
 
 #Routing for Restaurant profile
@@ -73,13 +70,18 @@ def displayrestau():
 
     return render_template('reservationrestau.html', resto=restau_json)
 
+@app.route("/deleterestau", methods =['GET', 'POST', 'PULL'])
+def deleterestau():
+    if request.method == "POST":
+        owner = 1
+        response = request.post("http://127.0.0.1:5000/restaurant/",
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
+        restau_json=restaurant.json()
+        return redirect(url_for('restuarantprofile'))
+
+    return render_template('reservationrestau.html', resto=restau_json)
+
 if __name__=='__main__':
     app.run(debug=True,threaded=True, port=4000)   
 
-@app.route('/restaurant1')
-def restaurant1():
-    return render_template('restaurant1.html')
-
-if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=4000)   
-
+    
