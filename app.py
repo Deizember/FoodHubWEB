@@ -61,10 +61,12 @@ def reservationres():
 
 @app.route("/displayrestau", methods =['GET', 'POST'])
 def displayrestau():
-    owner = 1
-    response = request.post("http://127.0.0.1:5000/restaurant/",
-    json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
-    restau_json=restaurant.json()
+    if request.method == "POST":
+        owner = 1
+        response = request.post("http://127.0.0.1:5000/restaurant/",
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
+        restau_json=restaurant.json()
+        return redirect(url_for('restuarantprofile'))
 
     return render_template('reservationrestau.html', resto=restau_json)
 
