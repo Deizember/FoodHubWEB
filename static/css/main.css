@@ -473,6 +473,7 @@ a.rss:hover{
   position: absolute;
   top:50%;
   left:50%;
+  right:50%;
   transform: translate(-50%,-50%);
 }
 
@@ -489,6 +490,7 @@ a.rss:hover{
   -webkit-appearance: button;
   outline:none;
 }
+
 .dropdown-content a {
   float: none;
   color: black;
