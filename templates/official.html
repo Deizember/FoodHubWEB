@@ -21,24 +21,23 @@
 </head>
 <body itemscope>
     <main>
-       
         <header class="stick">
-                <div class="topbar">
-                    <div class="container">
-                        <div class="dropdown">
-                            <button class="dropbtn" >Settings
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            
-                                    <div class="dropdown-content" id="myDropdown">
-                                      <a href="#">logout</a>
-                                      <a href="#">Link 2</a>
-                                      <a href="#">Link 3</a>
-                                    </div>
+            <div class="topbar">
+                <div class="container">
+                    <div class="dropdown">
+                         <button class="dropbtn" img src="{{ url_for('static', filename='images/defaultpic.jpg') }}" height="30" width="30">
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <details-menu class="dropdown-menu dropdown-menu-sw" role="menu"></details-menu>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="#">Logout</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
                             </div>
-                                
-                    </div>         
-            </header><!-- Header -->
+                    </div>
+                </div>
+            </div>     
+        </header><!-- Header -->
             <div class="block">
                 <div style="background-image: url(static/images/topbg.jpg);" class="fixed-bg"></div>
                 <div class="restaurant-searching text-center">

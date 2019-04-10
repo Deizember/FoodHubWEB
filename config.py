@@ -1,7 +1,11 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from forms import RegistrationForm, LogInForm
+
 
 app = Flask(__name__)
+
 app.config[''] = 'testfile'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -13,3 +17,5 @@ app.static_folder = 'static'
 db = SQLAlchemy(app)
 db.create_all()
 app.debug = True
+
+# any secret string

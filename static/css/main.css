@@ -305,7 +305,7 @@ iframe {
   width: 100%;
 }
 img {
-  max-width: 100%;
+  max-width: -100%;
   vertical-align: middle;
 }
 .title1-wrapper .text-white,
@@ -452,9 +452,9 @@ a.rss:hover{
   color: white;
   padding: 10px 15px;
   background-color: inherit;
-  right: -100%;
+  right:-100%;
   width:100%;
-  float:right;
+  float:left;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {

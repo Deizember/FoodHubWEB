@@ -22,14 +22,22 @@
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <input class="brd-rd3" type="password" placeholder="Password">
                             </div>
+                            <div class="actions">
+                                <a id="TakeAction">Take Action</a>
+                                <ul id="actions">
+                                  <li>action 1</li>
+                                  <li>action 2</li>
+                                </ul>
+                            </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="sign-btn" href="/login" title="" itemprop="url">Already Registered? Sign in</a>
+                                <a class="sign-btn" href="{{ url_for('login') }}" title="" itemprop="url">Already Registered? Sign in</a>
                                 <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

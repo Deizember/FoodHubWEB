@@ -44,6 +44,12 @@
             <div class="topbar">
                 <div class="container">
                     <div class="topbar-register">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {%for category, message in messages %}
+                            <div class="alert laert-{{ category }}">
+                                {{ message }}
+                            </div>
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
                     </div> 
                      
@@ -198,7 +204,7 @@
                     <div class="sign-popup-title text-center">
                         <h4 itemprop="headline">SIGN UP</h4>  
                     </div>
-                    <form class="sign-form">
+                    <form class="sign-form" method = "POST">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <input class="brd-rd3" type="text" placeholder="First Name "name="firstname">
