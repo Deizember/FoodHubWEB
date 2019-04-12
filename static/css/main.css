@@ -305,7 +305,7 @@ iframe {
   width: 100%;
 }
 img {
-  max-width: -100%;
+  max-width: 100%;
   vertical-align: middle;
 }
 .title1-wrapper .text-white,
@@ -452,9 +452,9 @@ a.rss:hover{
   color: white;
   padding: 10px 15px;
   background-color: inherit;
-  right:-100%;
+  right: -100%;
   width:100%;
-  float:left;
+  float:right;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
@@ -469,7 +469,6 @@ a.rss:hover{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-<<<<<<< HEAD
 .box{
   position: absolute;
   top:50%;
@@ -491,8 +490,6 @@ a.rss:hover{
   -webkit-appearance: button;
   outline:none;
 }
-=======
->>>>>>> Login
 
 .dropdown-content a {
   float: none;

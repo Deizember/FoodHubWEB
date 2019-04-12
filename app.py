@@ -12,7 +12,7 @@ Bootstrap (app)
 
 #Routing for landing pages
 
-@app.route("/ownerlanding")
+@app.route("/ownerlanding", methods=['GET','POST'])
 def ownerlanding():
     return render_template('ownerlanding.html')
 
@@ -20,9 +20,9 @@ def ownerlanding():
 def customerlanding():
     return render_template('customerlanding.html')
 
-@app.route('/customer/register', methods=['GET','POST'])
+@app.route('/register', methods=['GET','POST'])
 def OwnerRegistration():
-    print('wa kasulod')
+    print('hhhhhhhhhhh')
    
     if request.method == "POST":
         print('sulod')
@@ -34,17 +34,21 @@ def OwnerRegistration():
         username = request.form['username'] 
         password = request.form['password']
     
-        response = requests.post("http://127.0.0.1:5000/owner",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username, "password":password}, )
+        response = requests.post("http://127.0.0.1:5000/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": str(contact_number),"username":username,"email":email, "password":password} )
         print(response.status_code)
         if response.status_code == 400:
             print("Username or password is incorrect")
             
-        elif response.status_code == 200:
-            return redirect(url_for('ownerlanding'  ))
+        else:
+            return redirect(url_for('ownerlanding' ))
     return render_template('landing.html')
 
 #Routing for Login
-@app.route('/', methods=['GET','POST'])
+@app.route('/')
+def index():
+    return render_template('landing.html')
+
+@app.route('/login', methods=['GET','POST'])
 def Ownerlogin():
     print('wa kasulod')
    
@@ -88,13 +92,13 @@ def addrestau():
         bio = request.form['bio']
         locations = request.form['locations']
         owner = request.form['owner']
-
+        
 
         response = requests.post("http://127.0.0.1:5000/restaurant/",
         json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
         print(response.text)
-        flash('Restaurant successfully created!')
-        return redirect(url_for('restuarantprofile'))  
+
+        return redirect(url_for('restaurantprofile'))  
     return render_template('reservationrestau.html')
 
 @app.route("/displayrestau", methods =['GET', 'POST'])
