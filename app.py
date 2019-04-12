@@ -7,6 +7,8 @@ import requests
 
 
 app = Flask(__name__)
+Bootstrap (app)
+
 
 #Routing for landing pages
 

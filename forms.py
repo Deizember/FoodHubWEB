@@ -1,0 +1,22 @@
+from flask_wtf import FlaskForm
+from flask_login import current_user
+from flask_bootstrap import Bootstrap
+from wtforms import StringField, PasswordField, SubmitField,IntegerField, BooleanField, IntegerField, RadioField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, Optional, InputRequired, ValidationError
+
+
+
+class RegistrationForm(FlaskForm):
+    firstname = StringField('First Name', validators=[InputRequired(),Length(min=2,max=20)])
+    lastname = StringField('Lasst Name', validators=[InputRequired(),Length(min=2,max=20)])
+    gender = StringField('Gender', validators=[InputRequired(),Length(min=2,max=20)])
+    contact = StringField('Contact Number', validators=[InputRequired(),Length(min=2,max=20)])
+    email = StringField('Email Address', validators=[InputRequired(),Email()])
+    username = StringField('User Name', validators=[InputRequired(),Length(min=2,max=20)])
+    password = PasswordField('Password', validators=[InputRequired(), EqualTo('confirm_password', message='Passwords do not match,')])
+    confirm_password = BooleanField('Confirm Password', validators=[InputRequired(),Length(min=2,max=20)])
+
+class LogInForm(FlaskForm):
+    email = StringField('Email',validators=[InputRequired(), Email()])
+    password = PasswordField('Password', validators=[InputRequired()])
+    emember = BooleanField('Remember')

@@ -1,3 +1,7 @@
 *.pyc
 *.vscode
 *.eniv
+<<<<<<< HEAD
+=======
+*.venv
+>>>>>>> Login
