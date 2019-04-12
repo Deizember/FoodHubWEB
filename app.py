@@ -25,8 +25,6 @@ def official():
 @app.route('/customer/register', methods=['GET','POST'])
 def register_customer():
     form = RegistrationForm()
-    if form.validat_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
     if request.method == "POST":
         print('sulod')
         firstname = request.form['firstname']
