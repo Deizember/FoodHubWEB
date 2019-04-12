@@ -20,6 +20,32 @@ def ownerlanding():
 def customerlanding():
     return render_template('customerlanding.html')
 
+
+#Routing for Registration
+@app.route('/', methods=['GET','POST'])
+def register_customer():
+
+    if request.method == "POST":
+        print('sulod')
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        contact_number = request.form['contact_number']
+        gender = request.form['gender']
+        username = request.form['username']
+        password = request.form['password']
+        
+
+        response = requests.post("http://127.0.0.1:5000/owner/",
+        json={"firstname":firstname,"lastname":lastname,"contact_number":contact_number,"gender":gender,"username":username, "password":password}, )
+        print(response.text)
+        return redirect(url_for('ownerlanding'))  
+    return render_template('landing.html')
+
+
+
+
+ 
+
 #Routing for Login
 @app.route('/', methods=['GET','POST'])
 def Ownerlogin():
@@ -98,5 +124,3 @@ def deleterestau():
 
 if __name__=='__main__':
     app.run(debug=True,threaded=True, port=8000)   
-
-    
