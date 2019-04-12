@@ -20,31 +20,28 @@ def ownerlanding():
 def customerlanding():
     return render_template('customerlanding.html')
 
-
-#Routing for Registration
-@app.route('/', methods=['GET','POST'])
-def register_customer():
-
+@app.route('/customer/register', methods=['GET','POST'])
+def OwnerRegistration():
+    print('wa kasulod')
+   
     if request.method == "POST":
         print('sulod')
         firstname = request.form['firstname']
         lastname = request.form['lastname']
-        contact_number = request.form['contact_number']
         gender = request.form['gender']
-        username = request.form['username']
+        contact_number = request.form['contact_number']
+        email = request.form['email']
+        username = request.form['username'] 
         password = request.form['password']
-        
-
-        response = requests.post("http://127.0.0.1:5000/owner/",
-        json={"firstname":firstname,"lastname":lastname,"contact_number":contact_number,"gender":gender,"username":username, "password":password}, )
-        print(response.text)
-        return redirect(url_for('ownerlanding'))  
+    
+        response = requests.post("http://127.0.0.1:5000/owner",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username, "password":password}, )
+        print(response.status_code)
+        if response.status_code == 400:
+            print("Username or password is incorrect")
+            
+        elif response.status_code == 200:
+            return redirect(url_for('ownerlanding'  ))
     return render_template('landing.html')
-
-
-
-
- 
 
 #Routing for Login
 @app.route('/', methods=['GET','POST'])
