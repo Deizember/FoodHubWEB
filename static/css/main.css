@@ -4593,8 +4593,8 @@ input:checked + .switch-slider:before {
   float: left;
   width: 100%;
   margin-bottom: 17px;
-  font-size: 11px;
-  color: #888;
+  font-size: 17px;
+  color: black;
   font-family: lato;
   height: 50px;
   padding: 10px 20px;

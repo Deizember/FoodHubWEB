@@ -7,14 +7,17 @@ import requests
 
 
 app = Flask(__name__)
-Bootstrap (app)
+
 #Routing for landing pages
 
-@app.route("/official")
-def official():
-    return render_template('official.html')
+@app.route("/ownerlanding")
+def ownerlanding():
+    return render_template('ownerlanding.html')
 
-    
+@app.route("/customerlanding")
+def customerlanding():
+    return render_template('customerlanding.html')
+
 #Routing for Login
 @app.route('/', methods=['GET','POST'])
 def Ownerlogin():
@@ -24,16 +27,22 @@ def Ownerlogin():
         
         print('sulod')
         username = request.form['username'] 
-        password = request.form['password'] 
+        password = request.form['password']
+        #user_get = requests.get("http://127.0.0.1:5000/users/" + username)
+        #User = user.verify_auth_token(username_or_token)
 
-        response = requests.post("http://127.0.0.1:5000/owner/login",
-        json={"username":username, "password":password}, )
+        #if User.id == "owner":
+        #    if request.form['username'] == 'admin' and request.form['password'] == 'password':
+        #         return redirect(url_for('ownerlanding'  ))
+                
+        # elif user.id == "costumer":
+        response = requests.post("http://127.0.0.1:5000/owner/login",json={"username":username, "password":password}, )
         print(response.status_code)
         if response.status_code == 400:
             print("Username or password is incorrect")
             
         elif response.status_code == 200:
-            return redirect(url_for('official'  ))
+            return redirect(url_for('ownerlanding'  ))
     return render_template('landing.html')
 
 
@@ -42,18 +51,22 @@ def Ownerlogin():
 @app.route('/restaurantprofile')
 def restaurantprofile():
     return render_template('restaurantprofile.html')
-@app.route('/reservationres', methods =['GET', 'POST'])
-def reservationres():
+
+@app.route('/restaurant', methods =['GET', 'POST'])
+def addrestau():
+    print('wa kasulod')
     if request.method == "POST":
         print('sulod')
+
         restaurant_name = request.form['restaurant_name'] 
         restaurant_type = request.form['restaurant_type']
         bio = request.form['bio']
         locations = request.form['locations']
+        owner = request.form['owner']
 
 
-        response = request.post("http://127.0.0.1:5000/restaurant/",
-        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
+        response = requests.post("http://127.0.0.1:5000/restaurant/",
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
         print(response.text)
         flash('Restaurant successfully created!')
         return redirect(url_for('restuarantprofile'))  
@@ -82,6 +95,6 @@ def deleterestau():
     return render_template('reservationrestau.html', resto=restau_json)
 
 if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=4000)   
+    app.run(debug=True,threaded=True, port=8000)   
 
     
