@@ -34,13 +34,13 @@ def OwnerRegistration():
         username = request.form['username'] 
         password = request.form['password']
     
-        response = requests.post("http://127.0.0.1:5000/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": str(contact_number),"username":username,"email":email, "password":password} )
+        response = requests.post("http://127.0.0.1:5000/customer/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": str(contact_number),"username":username,"email":email, "password":password} )
         print(response.status_code)
         if response.status_code == 400:
             print("Username or password is incorrect")
             
         else:
-            return redirect(url_for('ownerlanding' ))
+            return redirect(url_for('customerlanding' ))
     return render_template('landing.html')
 
 #Routing for Login
@@ -124,4 +124,4 @@ def deleterestau():
     return render_template('reservationrestau.html', resto=restau_json)
 
 if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=8000)   
+    app.run(debug=True,threaded=True, port=4000)   
