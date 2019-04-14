@@ -36,7 +36,7 @@ def Ownerlogin():
         #         return redirect(url_for('ownerlanding'  ))
                 
         # elif user.id == "costumer":
-        response = requests.post("http://127.0.0.1:5000/owner/login",json={"username":username, "password":password}, )
+        response = requests.post("http://127.0.0.1:5000/customer/login",json={"username":username, "password":password}, )
         print(response.status_code)
         if response.status_code == 400:
             print("Username or password is incorrect")
@@ -64,12 +64,13 @@ def addrestau():
         locations = request.form['locations']
         owner = request.form['owner']
 
+        
+
 
         response = requests.post("http://127.0.0.1:5000/restaurant/",
         json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
         print(response.text)
-        flash('Restaurant successfully created!')
-        return redirect(url_for('restuarantprofile'))  
+        return redirect(url_for('restaurantprofile'))  
     return render_template('reservationrestau.html')
 
 @app.route("/displayrestau", methods =['GET', 'POST'])
@@ -77,7 +78,7 @@ def displayrestau():
     if request.method == "POST":
         owner = 1
         response = request.post("http://127.0.0.1:5000/restaurant/",
-        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
         restau_json=restaurant.json()
         return redirect(url_for('restuarantprofile'))
 
