@@ -13,69 +13,41 @@ Bootstrap (app)
 #     return render_template('landing.html')
 
 
-@app.route('/restaurant1')
-def restaurant1():
-    return render_template('restaurant1.html')
+@app.route('/')
+def index():
+    return render_template('landing.html')
+@app.route("/ownerlanding", methods=['GET','POST'])
+def ownerlanding():
+    return render_template('ownerlanding.html')
 
+@app.route("/customerlanding")
+def customerlanding():
+    return render_template('customerlanding.html')
 
-@app.route("/official")
-def official():
-    return render_template('official.html')
-
-@app.route('/customer/register', methods=['GET','POST'])
-def register_customer():
-    form = RegistrationForm()
+@app.route('/register', methods=['GET','POST'])
+def OwnerRegistration():
+    print('hhhhhhhhhhh')
+   
     if request.method == "POST":
         print('sulod')
         firstname = request.form['firstname']
         lastname = request.form['lastname']
-        contact_number = request.form['contact_number']
         gender = request.form['gender']
-        username = request.form['username']
-        password = request.form['password']
-        
-
-        response = requests.post("http://127.0.0.1:5000/customer",
-        json={"firstname":firstname,"lastname":lastname,"contact_number":contact_number,"gender":gender,"username":username, "password":password}, )
-        print(response.text)
-        return redirect(url_for('official'))  
-    return render_template('landing.html')
-
-
-@app.route('/owner/register', methods=['GET','POST'])
-def register_owner():
-    form = RegistrationForm()
-    if request.method == "POST":
-        print('sulod')
-        firstname = request.form['firstname']
-        lastname = request.form['lastname']
         contact_number = request.form['contact_number']
-        gender = request.form['gender']
-        username = request.form['username']
-        password = request.form['password']
-        
-        response = requests.post("http://127.0.0.1:5000/owner",
-        json={"firstname":firstname,"lastname":lastname,"contact_number":contact_number,"gender":gender,"username":username, "password":password}, )
-        print(response.text)
-        return redirect(url_for('official'))
-        
-    return render_template('landing.html')
-
- 
-@app.route('/', methods=['GET','POST'])
-def Ownerlogin():
-    form = LogInForm()
-    print('wa kasulod')
-    if request.method == "POST":
-        print('sulod')
+        email = request.form['email']
         username = request.form['username'] 
-        password = request.form['password'] 
-
-        response = requests.post("http://127.0.0.1:5000/owner/login",
-        json={"username":username, "password":password}, )
-        print(response.text)
-        return redirect(url_for('official'))  
+        password = request.form['password']
+    
+        response = requests.post("http://127.0.0.1:5000/customer/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": str(contact_number),"username":username,"email":email, "password":password} )
+        print(response.status_code)
+        if response.status_code == 400:
+            print("Username or password is incorrect")
+            
+        else:
+            return redirect(url_for('customerlanding' ))
     return render_template('landing.html')
+
+
 
 @app.route('/customerProfile')
 @login_required
