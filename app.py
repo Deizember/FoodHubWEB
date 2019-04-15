@@ -11,6 +11,10 @@ Bootstrap (app)
 
 
 #Routing for landing pages
+@app.route('/')
+def index():
+    return render_template('landing.html')
+
 
 @app.route("/ownerlanding", methods=['GET','POST'])
 def ownerlanding():
@@ -34,19 +38,16 @@ def OwnerRegistration():
         username = request.form['username'] 
         password = request.form['password']
     
-        response = requests.post("http://127.0.0.1:5000/customer/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": str(contact_number),"username":username,"email":email, "password":password} )
+        response = requests.post("http://127.0.0.1:5000/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": str(contact_number),"username":username,"email":email, "password":password} )
         print(response.status_code)
         if response.status_code == 400:
             print("Username or password is incorrect")
             
         else:
-            return redirect(url_for('customerlanding' ))
+            return redirect(url_for('ownerlanding' ))
     return render_template('landing.html')
 
 #Routing for Login
-@app.route('/')
-def index():
-    return render_template('landing.html')
 
 @app.route('/login', methods=['GET','POST'])
 def Ownerlogin():
