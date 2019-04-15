@@ -62,13 +62,10 @@ def addrestau():
         restaurant_type = request.form['restaurant_type']
         bio = request.form['bio']
         locations = request.form['locations']
-        owner = request.form['owner']
-
-        
 
 
         response = requests.post("http://127.0.0.1:5000/restaurant/",
-        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations}, )
         print(response.text)
         return redirect(url_for('restaurantprofile'))  
     return render_template('reservationrestau.html')
@@ -80,7 +77,7 @@ def displayrestau():
         response = request.post("http://127.0.0.1:5000/restaurant/",
         json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
         restau_json=restaurant.json()
-        return redirect(url_for('restuarantprofile'))
+        return redirect(url_for('restaurantprofile'))
 
     return render_template('reservationrestau.html', resto=restau_json)
 
@@ -91,11 +88,11 @@ def deleterestau():
         response = request.post("http://127.0.0.1:5000/restaurant/",
         json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
         restau_json=restaurant.json()
-        return redirect(url_for('restuarantprofile'))
+        return redirect(url_for('restaurantprofile'))
 
     return render_template('reservationrestau.html', resto=restau_json)
 
 if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=8000)   
+    app.run(debug=True,threaded=True, port=8080)   
 
     
