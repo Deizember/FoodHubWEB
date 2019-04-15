@@ -24,7 +24,7 @@ def customerlanding():
 
 #Routing for Login
 @app.route('/login', methods=['GET','POST'])
-def Ownerlogin():
+def login():
     print('wa kasulod')
     
     if request.method == "POST":
@@ -71,7 +71,7 @@ def restaurantprofile():
 #Routing for Registration 
 
 @app.route('/register', methods=['GET','POST'])
-def OwnerRegistration():
+def Registration():
     print('hhhhhhhhhhh')
     
     if request.method == "POST":
@@ -86,7 +86,7 @@ def OwnerRegistration():
         user_type = request.form['owner_type']
         print(user_type)
 
-        if user_type == "Owner":
+        if user_type == "owner":
             response = requests.post("http://127.0.0.1:5000/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
             print(response.status_code)
             if response.status_code == 400:
