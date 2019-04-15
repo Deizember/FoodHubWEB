@@ -9,6 +9,10 @@ import requests
 app = Flask(__name__)
 
 #Routing for landing pages
+@app.route('/')
+def index():
+    return render_template('landing.html')
+
 
 @app.route("/ownerlanding")
 def ownerlanding():
@@ -19,7 +23,7 @@ def customerlanding():
     return render_template('customerlanding.html')
 
 #Routing for Login
-@app.route('/', methods=['GET','POST'])
+@app.route('/login', methods=['GET','POST'])
 def Ownerlogin():
     print('wa kasulod')
     
@@ -54,6 +58,7 @@ def Ownerlogin():
     return render_template('landing.html')
 
 
+
 #Routing for Restaurant profile
 
 @app.route('/restaurantprofile', methods=['GET'])
@@ -63,6 +68,43 @@ def restaurantprofile():
     restau_json=restaurant.json()
     print(restau_json)
     return render_template('restaurantprofile.html', i=restau_json)
+#Routing for Registration 
+
+@app.route('/register', methods=['GET','POST'])
+def OwnerRegistration():
+    print('hhhhhhhhhhh')
+    
+    if request.method == "POST":
+        print('sulod')
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        gender = request.form['gender']
+        contact_number = request.form['contact_number']
+        email = request.form['email']
+        username = request.form['username'] 
+        password = request.form['password']
+        user_type = request.form['owner_type']
+        print(user_type)
+
+        if user_type == "Owner":
+            response = requests.post("http://127.0.0.1:5000/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
+            print(response.status_code)
+            if response.status_code == 400:
+                print("Username or password is incorrect")
+                
+            else:
+                return redirect(url_for('ownerlanding' ))
+        else:
+            response = requests.post("http://127.0.0.1:5000/customer/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
+            print(response.status_code)
+            if response.status_code == 400:
+                print("Username or password is incorrect")
+                
+            else:
+                return redirect(url_for('customerlanding' ))
+            
+    return render_template('landing.html')
+
 
 @app.route('/restaurant', methods =['GET', 'POST'])
 def addrestau():
