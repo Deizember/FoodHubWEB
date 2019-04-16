@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect,flash
 from flask_bootstrap import Bootstrap
 from flask_login import current_user
-from flask_restful import Resource, Api
 import requests
 
 
@@ -21,7 +20,7 @@ def ownerlanding():
 @app.route("/customerlanding")
 def customerlanding():
     return render_template('customerlanding.html')
-    
+
 #Routing for Registration 
 @app.route('/register', methods=['GET','POST'])
 def Registration():
@@ -92,8 +91,6 @@ def login():
 
 
     return render_template('landing.html')
-
-
 
 #Routing for Restaurant profile
 
