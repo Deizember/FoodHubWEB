@@ -140,6 +140,14 @@ def deleterestau():
 
     return render_template('reservationrestau.html', resto=restau_json)
 
+#Routing for Customer Profile
+@app.route('/customerProfile')
+#@login_required
+def CustomerProfile():
+    image_file = url_for('static', filename='images/'+ current_user.image_file)
+    return render_template('customer-profile.html')
+
+
 if __name__=='__main__':
     app.run(debug=True,threaded=True, port=9080)   
 
