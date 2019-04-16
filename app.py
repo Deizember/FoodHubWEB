@@ -145,6 +145,6 @@ def deleterestau():
     return render_template('reservationrestau.html', resto=restau_json)
 
 if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=8080)   
+    app.run(debug=True,threaded=True, port=9080)   
 
     
