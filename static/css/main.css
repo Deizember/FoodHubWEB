@@ -425,7 +425,7 @@ a.rss:hover{
   font-size: 20px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.75)
   -webkit-appearance: button;
-  outline:none;
+  outline: none;
 }
 
 .dropdown-content a {
