@@ -12,7 +12,16 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('landing.html')
-
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+    
+@app.route('/customereservation')
+def customereservation():
+    return render_template('customereservation.html')
+@app.route('/tables')
+def tables():
+    return render_template('tables.html')
 
 @app.route("/ownerlanding")
 def ownerlanding():
@@ -116,14 +125,13 @@ def addrestau():
         restaurant_type = request.form['restaurant_type']
         bio = request.form['bio']
         locations = request.form['locations']
-        owner = 1
 
 
         response = requests.post("http://127.0.0.1:5000/restaurant/",
-        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations,"owner":owner}, )
         print(response.text)
-        return redirect(url_for('restaurantprofile'))  
-    return render_template('reservationrestau.html')
+        return redirect(url_for('tables'))  
+    return render_template('ownerlanding.html')
 
 @app.route("/displayrestau", methods =['GET', 'POST'])
 def displayrestau():
@@ -145,6 +153,6 @@ def deleterestau():
     return render_template('reservationrestau.html', resto=restau_json)
 
 if __name__=='__main__':
-    app.run(debug=True,threaded=True, port=9080)   
+    app.run(debug=True,threaded=True, port=9090)   
 
     
