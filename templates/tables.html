@@ -112,7 +112,7 @@ table.table td .add {
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     var actions = $("table td:last-child").html();
-    // Append table with add row form on add new button click
+    // Append table with add displayres form on add new button click
       $(".add-new").click(function(){
       $(this).attr("disabled", "disabled");
       var index = $("table tbody tr:last-child").index();
@@ -429,28 +429,31 @@ table.table td .add {
               <table class="table table-striped table-hover">
                   <thead>
                       <tr>
-                          <th>#</th>
+                          
                           <th>Restaurant Name</th>
                           <th>Restaurant Type</th>
                           <th>Location</th>
                           <th>Description</th>
-                          <th>Actions</th>
+                          <th>Action</th>
                       </tr>
-                  </thead>
+                  </thead>Manage
 
                   <tbody>
-                      {% for row in restaurant %}
+                      {% for i in displayres %}
                       <tr>
-                         <td>{{row.0}}</td>
-                          <td>{{row.1}}</td>
-                          <td>{{row.2}}</td>
-                          <td>{{row.3}}</td>
-                          <td>{{row.4}}</td>
+                       
+                         <td>{{i.restaurant_name}}</td>
+                          <td>{{i.restaurant_type}}</td>
+                          <td>{{i.locations}}</td>
+                          <td>{{i.bio}}</td>
+                          
                           <td>
-                              <a href="/restaurant/{row.0}}" data target="#editRestaurantModal class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                              <a href="/deleterestau/{row.0}}" data target="#deleteRestaurantModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                              <a href="/restaurant/" data target="#editRestaurantModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                              <a href="/deleterestau/" data target="#deleteRestaurantModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                           </td>
                       </tr>
+                     
+
                       <!-- Edit Modal HTML -->
     <div id="editRestaurantModal" class="modal fade">
         <div class="modal-dialog">
@@ -463,28 +466,28 @@ table.table td .add {
               <div class="modal-body">
                   
                 <div class="form-group">
-                   <input type="hidden"  name="id" value="{{row.0}}">
-                   <input type="hidden" class="form-control" name="idno" value="{{row.0}}">
+                   <input type="hidden"  name="id" >
+                   <input type="hidden" class="form-control" name="idno"  >
                 </div>
                 <div class="form-group">
                   <label>Restaurant Name</label>
-                  <input type="hidden"  name="id" value="{{row.0}}">
-                  <input type="text" class="form-control" name=" restaurant_name" value="{{row.1}}" value required>
+                  <input type="hidden"  name="id" >
+                  <input type="text" class="form-control" name=" restaurant_name" value = "{{i.restaurant_name}}" required>
                 </div>
                 <div class="form-group">
                   <label>Restaurant Type</label>
-                  <input type="hidden"  name="id" value="{{row.0}}">
-                  <input type="text" class="form-control" name =" restaurant_type" value="{{row.2}}" required>
+                  <input type="hidden"  name="id" >
+                  <input type="text" class="form-control" name =" restaurant_type" value = "{{i.restaurant_type}}" required>
                 </div>
                 <div class="form-group">
                   <label>Location</label>
-                  <input type="hidden"  name="id" value="{{row.0}}">
-                  <input type="text" class="form-control" name="bio" value="{{row.3}}" required>
+                  <input type="hidden"  name="id" >
+                  <input type="text" class="form-control" name="locations" value = "{{i.restaurant_locations}}" required>
                 </div>
                 <div class="form-group">
                   <label>Description</label>
-                  <input type="hidden"  name="id" value="{{row.0}}">
-                  <textarea class="form-control" name ="locations" value="{{row.4}}" required></textarea>
+                  <input type="hidden"  name="id" >
+                  <textarea class="form-control" name ="locations" value = "{{i.restaurant_bio}}" required></textarea>
                 </div>
                           
               </div>
@@ -497,14 +500,14 @@ table.table td .add {
         </div>
       </div>
       {% endfor  %}
-                  </tbody>
-              </table>
         
+    </tbody>
+  </table>
     <!-- Add Modal HTML -->
     <div id="addRestaurantModal" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form action ="/restaurant" method="POST">
+          <form action ="/addrestaurant" method="POST">
             <div class="modal-header">						
               <h4 class="modal-title">Add Restaurant</h4>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

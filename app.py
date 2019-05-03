@@ -3,7 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_login import current_user
 from flask_restful import Resource, Api
 import requests
-
+import json
 
 
 app = Flask(__name__)
@@ -19,9 +19,12 @@ def profile():
 @app.route('/customereservation')
 def customereservation():
     return render_template('customereservation.html')
-@app.route('/tables')
+@app.route('/tables', methods=['GET','POST','PUT'])
 def tables():
-    return render_template('tables.html')
+    responseget= requests.get("http://127.0.0.1:5000/restaurant/1")
+    restaurantsget = responseget.json()
+    print(restaurantsget)
+    return render_template('tables.html', displayres = restaurantsget)
 
 @app.route("/ownerlanding")
 def ownerlanding():
@@ -115,8 +118,8 @@ def Registration():
     return render_template('landing.html')
 
 
-@app.route('/restaurant', methods =['GET', 'POST'])
-def addrestau():
+@app.route('/addrestaurant', methods =['GET', 'POST'])
+def addrestaurant():
     print('wa kasulod')
     if request.method == "POST":
         print('sulod')
@@ -128,10 +131,11 @@ def addrestau():
 
 
         response = requests.post("http://127.0.0.1:5000/restaurant/",
-        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations,"owner":owner}, )
+        json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations,"owner":1}, )
         print(response.text)
+        
         return redirect(url_for('tables'))  
-    return render_template('ownerlanding.html')
+    return render_template('ownerlanding.html', )
 
 @app.route("/displayrestau", methods =['GET', 'POST'])
 def displayrestau():
