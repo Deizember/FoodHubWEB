@@ -3,7 +3,12 @@ from flask_bootstrap import Bootstrap
 from flask_login import current_user
 import requests
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
+
+app = Flask(__name__)
 
 #Routing for landing pages
 @app.route('/')
@@ -37,7 +42,11 @@ def Registration():
         print(user_type)
 
         if user_type == "owner":
+<<<<<<< HEAD
             response = requests.post("http://127.0.0.1:9080/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
+=======
+            response = requests.post("http://127.0.0.1:5000/owner/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
             print(response.status_code)
             if response.status_code == 400:
                 print("Username or password is incorrect")
@@ -45,7 +54,11 @@ def Registration():
             else:
                 return redirect(url_for('ownerlanding' ))
         else:
+<<<<<<< HEAD
             response = requests.post("http://127.0.0.1:9080/customer/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
+=======
+            response = requests.post("http://127.0.0.1:5000/customer/",json={"firstname":firstname, "lastname": lastname, "gender": gender,"contact_number": contact_number,"username":username,"email":email, "password":password} )
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
             print(response.status_code)
             if response.status_code == 400:
                 print("Username or password is incorrect")
@@ -65,10 +78,17 @@ def login():
         print('sulod')
         username = request.form['username'] 
         password = request.form['password']
+<<<<<<< HEAD
         check_user = requests.get("http://127.0.0.1:9080/owner"+"/"+ username)
         print(check_user.status_code)
         if check_user.status_code == 200:
             response = requests.post("http://127.0.0.1:9080/owner/login",json={"username":username, "password":password}, )
+=======
+        check_user = requests.get("http://127.0.0.1:5000/owner"+"/"+ username)
+        print(check_user.status_code)
+        if check_user.status_code == 200:
+            response = requests.post("http://127.0.0.1:5000/owner/login",json={"username":username, "password":password}, )
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
             print(response.status_code)
             if response.status_code == 400:
                 print("Username or password is incorrect")  
@@ -76,7 +96,11 @@ def login():
             elif response.status_code == 200:
                 return redirect(url_for('ownerlanding'  ))
         elif check_user.status_code == 404:
+<<<<<<< HEAD
             response = requests.post("http://127.0.0.1:9080/customer/login",json={"username":username, "password":password}, )
+=======
+            response = requests.post("http://127.0.0.1:5000/customer/login",json={"username":username, "password":password}, )
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
             print(response.status_code)
             if response.status_code == 400:
                 print("Username or password is incorrect")
@@ -95,7 +119,11 @@ def login():
 @app.route('/restaurantprofile', methods=['GET'])
 def restaurantprofile():
     owner = 1
+<<<<<<< HEAD
     restaurant = requests.get("http://127.0.0.1:9080/restaurant/")
+=======
+    restaurant = requests.get("http://127.0.0.1:5000/restaurant/")
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
     restau_json=restaurant.json()
     print(restau_json)
     return render_template('restaurantprofile.html', i=restau_json)
@@ -113,7 +141,11 @@ def addrestau():
         owner = 1
 
 
+<<<<<<< HEAD
         response = requests.post("http://127.0.0.1:9080/restaurant/",
+=======
+        response = requests.post("http://127.0.0.1:5000/restaurant/",
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
         json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":owner}, )
         print(response.text)
         return redirect(url_for('restaurantprofile'))  
@@ -122,7 +154,11 @@ def addrestau():
 @app.route("/displayrestau", methods =['GET', 'POST'])
 def displayrestau():
     owner = 1
+<<<<<<< HEAD
     restaurant = requests.get("http://127.0.0.1:9080/restaurant/")
+=======
+    restaurant = requests.get("http://127.0.0.1:5000/restaurant/")
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
     restau_json=restaurant.json()
     
     return render_template('ownerlanding.html', i=restau_json)
@@ -131,7 +167,11 @@ def displayrestau():
 def deleterestau():
     if request.method == "POST":
         owner = 1
+<<<<<<< HEAD
         response = requests.put("http://127.0.0.1:9080/restaurant/",
+=======
+        response = requests.put("http://127.0.0.1:5000/restaurant/",
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
         json={"restaurant_name":restaurant_name, "restaurant_type":restaurant_type, "bio":bio, "locations":locations, "owner":1}, )
         restau_json=restaurant.json()
         return redirect(url_for('restaurantprofile'))
@@ -139,7 +179,11 @@ def deleterestau():
     return render_template('reservationrestau.html', resto=restau_json)
 
 #Routing for Customer Profile
+<<<<<<< HEAD
 @app.route('/customerProfile', methods =['GET', 'POST'])
+=======
+@app.route('/customerProfile')
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1
 #@login_required
 def CustomerProfile():
     image_file = url_for('static', filename='images/'+ current_user.image_file)
@@ -153,6 +197,13 @@ def displaycustom():
     
     return render_template('customerlanding.html', i=custom_json)
 
+<<<<<<< HEAD
 
 if _name__=='__main_':
     app.run(debug=True,threaded=True, port=9080)
+=======
+if __name__=='__main__':
+    app.run(debug=True,threaded=True, port=9080)   
+
+    
+>>>>>>> cd8041cd005d301e636e15fe0661382e62e82de1

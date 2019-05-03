@@ -1,67 +1,4 @@
-/*--
-Master Style Sheet
 
-  Project Name:         foodchow Html5 template;
-  last changes/update:  16-Nov-2018;
-
---*/
-/*** ======= // TABLE OF CONTENT // ============================
-01- Google Fonts
-02- Plugin Stylesheets Import
-03- General Styling
-04- Social Media Offical Colors
-05- Cross Browser Compatibility
-06- Chosen Container Style
-07- Topbar Social
-08- Sticky header
-09- Responsive Header
-10- Restaurant Searching Section
-11- Title Style 1
-12- Top Restaurants Section
-13- Title Style 2
-14- Popular Dishes Section
-15- Featured Restaurant Section
-16- Featured Restaurant Gallery & Video
-17- Easy Steps Section
-18- Most Popular Section
-19- App Section
-20- Footer
-21- Find Restaurant Section Style 2
-22- Top Restaurants Section Style 2
-23- Popular Restaurants Sec Style 2
-24- News Update Section
-25- Page Title Sec
-26- Breadcrumbs
-27- Pagination
-28- Price Table Section
-29- Radio Box
-30- Check Box
-31- Sidebar Widgets
-32- Mini Posts Style
-33- Contact Us Page
-34- Contact Form
-35- Restaurants Found Page
-36- Restaurant Detail Page
-37- Restaurant Detail Tabs
-38- Order Section
-39- Page Loader
-40- Blog Detail page
-41- Author & Comment Sec
-42- Reply Form
-43- How It Works Page
-44- Register Reservation
-45- Acvitation Tab
-46- Coming Soon page
-47- Search Not Found
-48- Error Page
-49- Newsletter Popup
-50- Gallery Page
-51- Social Media Offical Colors
-
-
-===================================================== ***/
-
-/*===== Google Fonts =====*/
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes|Lato|Poppins:300,400,400i,500,600,700,800');
 
 /*===== Plugin Stylesheets Import =====*/
@@ -305,7 +242,7 @@ iframe {
   width: 100%;
 }
 img {
-  max-width: -100%;
+  max-width: 100%;
   vertical-align: middle;
 }
 .title1-wrapper .text-white,
@@ -452,9 +389,9 @@ a.rss:hover{
   color: white;
   padding: 10px 15px;
   background-color: inherit;
-  right:-100%;
+  right: -100%;
   width:100%;
-  float:left;
+  float:right;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
@@ -469,6 +406,27 @@ a.rss:hover{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
+.box{
+  position: absolute;
+  top:50%;
+  left:50%;
+  right:50%;
+  transform: translate(-50%,-50%);
+}
+
+.box select
+{
+  background:white;
+  color: black;
+  padding:10px;
+  width:250px;
+  height: 50px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.75)
+  -webkit-appearance: button;
+  outline: none;
+}
 
 .dropdown-content a {
   float: none;
@@ -481,56 +439,6 @@ a.rss:hover{
 
 .dropdown-content a:hover {
   background-color: #ddd;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 5px 10px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: -100px;
-}
-
-.dropdown .dropbtn {
-  background-color: red;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 90px;
-  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 5px 10px;
-  text-decoration: none;
-  display: block;
-  text-align: right;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .show {
@@ -4622,8 +4530,8 @@ input:checked + .switch-slider:before {
   float: left;
   width: 100%;
   margin-bottom: 17px;
-  font-size: 11px;
-  color: #888;
+  font-size: 17px;
+  color: black;
   font-family: lato;
   height: 50px;
   padding: 10px 20px;
@@ -7226,6 +7134,69 @@ a.thanks-close:focus {color: #333;}
 .about-feat.text-center > img{width: 100%;}
 
 
+/* The container */
+.containerR {
+  display: block;
+  position: relative;
+  padding-left: 182px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.containerR input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 143px;
+  height: 23px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.containerR:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.containerR input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.containerR input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.containerR .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
 
 
 
