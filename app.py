@@ -71,15 +71,7 @@ def login():
 
 
 
-#Routing for Restaurant profile
 
-@app.route('/restaurantprofile', methods=['GET'])
-def restaurantprofile():
-    owner = 1
-    restaurant = requests.get("http://127.0.0.1:5000/restaurant/")
-    restau_json=restaurant.json()
-    print(restau_json)
-    return render_template('restaurantprofile.html', i=restau_json)
 #Routing for Registration 
 
 @app.route('/register', methods=['GET','POST'])
@@ -116,7 +108,15 @@ def Registration():
                 return redirect(url_for('customerlanding' ))
             
     return render_template('landing.html')
+#Routing for Restaurant profile
 
+@app.route('/tables', methods=['GET'])
+def tables():
+    
+    restaurantget = requests.get("http://127.0.0.1:5000/restaurant/")
+    restau_json=restaurantget.json()
+    print(restau_json)
+    return render_template('tables.html', displayres=restau_json)
 
 @app.route('/restaurant', methods =['GET', 'POST'])
 def addrestau():
@@ -138,7 +138,7 @@ def addrestau():
 
 @app.route("/displayrestau", methods =['GET', 'POST'])
 def displayrestau():
-    owner = 1
+   
     restaurant = requests.get("http://127.0.0.1:5000/restaurant/")
     restau_json=restaurant.json()
     
