@@ -1,4 +1,11 @@
 *.pyc
 *.vscode
 *.eniv
+<<<<<<< HEAD
 *.venv
+=======
+<<<<<<< HEAD
+=======
+*.venv
+>>>>>>> Login
+>>>>>>> 0252b66a95831ae49270d9fca5a535f77b235750
