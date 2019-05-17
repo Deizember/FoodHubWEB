@@ -18,7 +18,10 @@
     <link rel="stylesheet" href="static/css/red-color.css">
     <link rel="stylesheet" href="static/css/yellow-color.css">
     <link rel="stylesheet" href="static/css/responsive.css">
+    <link rel="stylesheet" href="static/css/buttons.css">
+
 </head>
+
 <body itemscope>
     <main>
         <div class="preloader">
@@ -173,7 +176,7 @@
                         <form class="sign-form" method = "POST" action ="/register">
 
                         
-                            <label class="containerR">Owner
+                            <label class="containerR" >Owner
                                 <input name ="owner_type" value="owner"type="radio" checked="checked">
                                 <span class="checkmark"></span>
                             </label>
@@ -207,8 +210,8 @@
                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                     <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
                                 </div>
+                                
                                 <div class="col-md-12 col-sm-12 col-lg-12">
-                                    
                                     <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
                                 </div>
                             </div>
@@ -216,29 +219,44 @@
                     </div>
                 </div>
             </div>
-
+        
         <div class="log-popup text-center">
             <div class="sign-popup-wrapper brd-rd5">
                 <div class="sign-popup-inner brd-rd5">
                     <a class="log-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
                     <div class="sign-popup-title text-center">
                         <h4 itemprop="headline">SIGN IN </h4>
+  
+                        <form class="sign-form" method ="post" action ="/login">
+
+                                <label class="containerR">Owner
+                                    <input name ="owner_type" value="owner"type="radio" checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+
+                                <label class="containerY">Customer
+                                    <input name = "owner_type" value ="Customer" type="radio">
+                                    <span class="checkmarkY"></span>
+                                </label>
+
+                                <div class="row">    
+
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <input class="brd-rd3" type="text" placeholder="Username or Email" name="username">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <input class="brd-rd3" type="password" placeholder="Password" name ="password">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
+                                </div>
                         
-                    <form class="sign-form" method ="post" action ="/login">
-                        <div class="row">
-                                  
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" placeholder="Username or Email" name="username">
                             </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" placeholder="Password" name ="password">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="recover-btn" href="#" title="" itemprop="url">Remember Me</a>
-                            </div>
+                        </form>
+                      
+                               
+                        
+                            
                         </div>
                     </form>
                 </div>
@@ -248,11 +266,7 @@
         
     </main><!-- Main Wrapper -->
 
-    <script>
-            document.querySelector('.showcase.sweet button').onclick = function(){
-              swal("Oops...", "Something went wrong!", "error");
-            };
-    </script>
+    
 
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/sweetalert.js"></script>

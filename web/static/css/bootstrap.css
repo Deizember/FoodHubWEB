@@ -2215,7 +2215,7 @@ legend{
     border-bottom:1px solid #e5e5e5
 }
 label{
-    display:inline-block;
+    padding-left: 10px;
     max-width:100%;
     margin-bottom:5px;
     font-weight:700
@@ -2324,7 +2324,7 @@ input[type=search]{
 }
 .checkbox label,.radio label{
     min-height:20px;
-    padding-left:20px;
+    padding-left:10px;
     margin-bottom:0;
     font-weight:400;
     cursor:pointer
