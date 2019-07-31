@@ -1,3 +1,11 @@
 *.pyc
-.vscode
-.eniv
+*.vscode
+*.eniv
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+*.venv
+>>>>>>> Login
+=======
+*.venv
+>>>>>>> Restaurant-Profile

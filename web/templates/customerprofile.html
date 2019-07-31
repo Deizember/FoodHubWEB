@@ -1,0 +1,500 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!----side bar-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>FoodHub</title>
+  <link rel="shortcut icon" href="static/images/logo.jpg" type="image/x-icon">
+
+  <!-- Custom fonts for this template-->
+  <link href="static/admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="static/admin/css/fonts.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="static/admin/css/admin-2.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="ownerlanding.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+        </div>
+        <div class="sidebar-brand-text mx-3">FoodHub</div>
+      </a>
+<!-- Nav Item - Dashboard -->
+<li class="nav-item  ">
+    <a class="nav-link" href="/ownerlanding">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span></a>
+  </li>
+   <!-- Nav Item - Restuarants -->
+   <li class="nav-item">
+    <a class="nav-link" href="#">
+      <i class="fas fa-hotel fa-sm fa-fw mr-2 "></i>
+      <span>Restuarants</span></a>
+  </li>
+  <!-- Nav Item - Tables -->
+  <li class="nav-item">
+    <a class="nav-link" href="/tables">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Tables</span></a>
+  </li>
+  
+  <li class="nav-item "></li>
+    <div class="dropdown">
+
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fas fa-list fa-sm fa-fw mr-2 "></i>Manage Reservation
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="/customereservation">Customer Reservation</a>
+          <a class="dropdown-item" href="#">Owner Reservation</a>
+          
+        </div>
+      </div>
+  </li>
+  <!--Nav Item -Calendar-->
+  <li class="nav-item">
+    <a class="nav-link" href="/calendar">
+      <i class="fas fa-calendar fa-sm fa-fw mr-2 "></i>
+      <span>Calendar</span></a>
+  </li>
+ <!--Nav Item -Maps-->
+ <li class="nav-item">
+  <a class="nav-link" href="/maps">
+    <i class="fas fa-map fa-sm fa-fw mr-2 "></i>
+    <span>Maps</span></a>
+</li>
+  <!--Nav Item -Settings-->
+  <li class="nav-item">
+    <a class="nav-link" href="/setting">
+      <i class="fas fa-cogs fa-sm fa-fw mr-2 "></i>
+      <span>Settings</span></a>
+  </li>
+ 
+</ul>
+<!--end of side bar-->
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Topbar Search -->
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+        <!-- Nav Item - Alerts -->
+          <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-bell fa-fw"></i>
+              <!-- Counter - Alerts -->
+              <span class="badge badge-danger badge-counter">3+</span>
+            </a>
+            <!-- Dropdown - Alerts -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <h6 class="dropdown-header">
+                Notifications
+              </h6>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                  <div class="icon-circle bg-primary">
+                    <i class="fas fa-file-alt text-white"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="small text-gray-500">December 12, 2019</div>
+                  <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                </div>
+              </a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                  <div class="icon-circle bg-success">
+                    <i class="fas fa-donate text-white"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="small text-gray-500">December 7, 2019</div>
+                  $290.29 has been deposited into your account!
+                </div>
+              </a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                  <div class="icon-circle bg-warning">
+                    <i class="fas fa-exclamation-triangle text-white"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="small text-gray-500">December 2, 2019</div>
+                  Spending Alert: We've noticed unusually high spending for your account.
+                </div>
+              </a>
+              <a class="dropdown-item text-center small text-gray-500" href="#">Show All Notifications</a>
+            </div>
+          </li>
+
+          <!-- Nav Item - Messages -->
+          <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-envelope fa-fw"></i>
+              <!-- Counter - Messages -->
+              <span class="badge badge-danger badge-counter">7</span>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+              <h6 class="dropdown-header">
+                Messages
+              </h6>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                  <img class="rounded-circle" src="static/images/avatar.png" alt="">
+                  <div class="status-indicator bg-success"></div>
+                </div>
+                <div class="font-weight-bold">
+                  <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                  <div class="small text-gray-500">Emily Fowler · 58m</div>
+                </div>
+              </a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                  <img class="rounded-circle" src="static/images/avatar2.png" alt="">
+                  <div class="status-indicator"></div>
+                </div>
+                <div>
+                  <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                  <div class="small text-gray-500">Jae Chun · 1d</div>
+                </div>
+              </a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                  <img class="rounded-circle" src="static/images/avatar3.png" alt="">
+                  <div class="status-indicator bg-warning"></div>
+                </div>
+                <div>
+                  <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                  <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                </div>
+              </a>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                  <img class="rounded-circle" src="static/images/avatar.png" alt="">
+                  <div class="status-indicator bg-success"></div>
+                </div>
+                <div>
+                  <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                  <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                </div>
+              </a>
+              <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+            </div>
+          </li>
+
+          <div class="topbar-divider d-none d-sm-block"></div>
+
+          <!-- Nav Item - User Information -->
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+              <img class="img-profile rounded-circle" src="static/images/profpic.png">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+
+        </ul>
+
+      </nav>
+      <!-- End of Topbar -->
+
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="file">
+                                        <input class="ChangeP" type="file" name="file" style="margin-top: 10px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        Kshiti Ghelani
+                                    </h5>
+                                    <h6>
+                                        Web Developer and Designer
+                                    </h6>
+                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit Profile</button>
+                        
+                        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                              
+                              <!-- edit form column -->
+                              <div class="col-md-9 personal-info">
+                                <div class="alert alert-info alert-dismissable">
+                                  <a class="panel-close close" data-dismiss="alert">×</a> 
+                                  <i class="fa fa-coffee"></i>
+                                  This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                                </div>
+                                <h3>Personal info</h3>
+                                
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">First name:</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" type="text" value="Jane">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Last name:</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" type="text" value="Bishop">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Company:</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" type="text" value="">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Email:</label>
+                                    <div class="col-lg-8">
+                                      <input class="form-control" type="text" value="janesemail@gmail.com">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-lg-3 control-label">Time Zone:</label>
+                                    <div class="col-lg-8">
+                                      <div class="ui-select">
+                                        <select id="user_time_zone" class="form-control">
+                                          <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                          <option value="Alaska">(GMT-09:00) Alaska</option>
+                                          <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                          <option value="Arizona">(GMT-07:00) Arizona</option>
+                                          <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                          <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                          <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                          <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Username:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" type="text" value="janeuser">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Password:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" type="password" value="11111122333">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label">Confirm password:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" type="password" value="11111122333">
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                          </div>
+                        
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Kshiti123</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Kshiti Ghelani</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>kshitighelani@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>123 456 7890</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hourly Rate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>10$/hr</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Total Projects</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>230</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>English Level</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Availability</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>6 months</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+          <!-- Bootstrap core JavaScript-->
+  <script src="static/admin/jquery/jquery.min.js"></script>
+  <script src="static/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="static/admin/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="static/js/admin-2.min.js"></script>
+
+  
+
+</body>
+
+</html>
