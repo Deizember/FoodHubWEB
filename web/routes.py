@@ -156,8 +156,15 @@ def search():
     url:'foodhubapi.herokuapp.com/restaurant'
 
 #Routing for Customer Profile
-@server.route('/customerProfile')
+@server.route("/customerProfile", methods=['POST', 'GET'])
 #@login_required
 def customerProfile():
     
-    return render_template('customer-profile.html')
+    return render_template('customerProfile.html')
+
+#Routing for Edit Customer Profile
+@server.route("/editProfile", methods=['POST', 'GET'])
+#@login_required
+def editProfile():
+    
+    return render_template('editProfile.html')

@@ -645,7 +645,7 @@ header {
   background-color: #161616;
   float: left;
   width: 100%;
-  height: 46px;
+  height: 80px;
 }
 .topbarerd {
   background-color: #f8f4f4;
@@ -7265,6 +7265,14 @@ a.thanks-close:focus {color: #333;}
   border-radius: 50%;
   background: white;
  }
+
+#customerlanding
+
+.img.image-profile.rounded-circle{
+  max-width: 6%;
+  vertical-align: middle !important
+
+}
 
 
 
